@@ -61,7 +61,8 @@ def deletarUsuario(userId):
 # CRUD CLI
 
 
-tarefasUrl = api_url + "/todos/"
+users_api = users.Users()
+todos_api = todos.Todos()
 
 
 def ctarefas(tarefas1):
