@@ -9,10 +9,15 @@ todos_api = todos.Todos()
 
 
 @app.route('/')
-@app.route('/users')
 def index():
     users = users_api.get_users()
     return render_template('index.html', users=users)
+
+
+@app.route('/userlist')
+def userlist():
+    users = users_api.get_users()
+    return render_template('userlist.html', users=users)
 
 
 @app.route('/todos')
