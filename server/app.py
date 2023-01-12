@@ -11,22 +11,26 @@ f.close()
 
 app = Flask(__name__)
 
+
 @app.route("/")
 @app.route("/users/")
 def default():
     return jsonify(user_list)
 
+
 @app.route("/users/<int:userid>")
 def user(userid):
     return jsonify(user_list[userid-1])
+
 
 @app.route("/users/<int:userid>/todos")
 def usertodos(userid):
     filtered = []
     for todo in todos:
-        if (todo["userId"]==userid-1):
+        if (todo["userId"] == userid-1):
             filtered.append(todo)
     return jsonify(filtered)
+
 
 @app.route('/users/', methods=['POST'])
 def update_record():
@@ -35,5 +39,6 @@ def update_record():
     new_records = []
     return jsonify(record)
 
+
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for user in users %}
-    <p><a href="/users/{{ user["id"] }}">{{ user["name"] }}</a>  <p>
+{% for user in users %}
+<p><a class="d-flex justify-content-center text-light" href="/users/{{ user[" id"] }}">{{ user["name"] }}</a>
+<p>
     {% endfor %}
-{% endblock %}
+    {% endblock %}
