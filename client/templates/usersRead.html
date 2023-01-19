@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-decoration-none d-flex justify-content-center text-light">READ USER</h2>
+<div style="padding-left: 42.3%; padding-right: 40%;">
+        <form action=" {{ url_for('usersCreate') }}" method="get">
+                USER ID TO BE READ:<input type="text" name="userId"><br>
+
+                <input type="submit" value="Submit">
+        </form>
+</div>
+{% endblock %}

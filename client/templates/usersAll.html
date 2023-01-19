@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
 <h2 class="text-decoration-none d-flex justify-content-center text-light"><i class="bi bi-person-fill"></i> USERLIST
@@ -6,8 +6,8 @@
 <br>
 <br>
 {% for user in users %}
-<p><a class="d-flex justify-content-center text-light lead text-decoration-none" href="/users/{{ user[" id"] }}">{{
+<p><a class="d-flex justify-content-center text-light lead text-decoration-none" href="/users/{{ user[' id'] }}">{{
         user["name"] }}</a>
 <p>
-    {% endfor %}
-    {% endblock %}
+{% endfor %}
+{% endblock %}

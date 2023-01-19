@@ -1,11 +1,11 @@
 import json
 from flask import Flask, jsonify, request
 
-f = open('todos.json')
+f = open("todos.json")
 todos = json.load(f)
 f.close()
 
-f = open('users.json')
+f = open("users.json")
 user_list = json.load(f)
 f.close()
 
@@ -32,7 +32,7 @@ def usertodos(userid):
     return jsonify(filtered)
 
 
-@app.route('/users/', methods=['POST'])
+@app.route("/users/", methods=["POST"])
 def update_record():
     record = json.loads(request.data)
     print(record)

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-decoration-none d-flex justify-content-center text-light"><i class="bi bi-person-fill"></i> USERLIST</h2>
+{% for user in users %}
+<p><a class="d-flex justify-content-center text-light lead text-decoration-none" href="/users/{{ user[' id'] }}">{{
+        user["name"] }}</a>
+<p>
+    {% endfor %}
+    {% endblock %}
