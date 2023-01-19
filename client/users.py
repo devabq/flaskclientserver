@@ -1,12 +1,14 @@
 import requests
+
+
 class Users:
-    base_url = 'http://localhost:5000/users'
+    apiUrl = "http://localhost:5000/users"
 
-    def get_users(self):
-        return requests.get(self.base_url).json()
+    def getUsersAll(self):
+        return requests.get(self.apiUrl).json()
 
-    def get_user_by_id(self, user_id):
-        return requests.get(f"{self.base_url}/{user_id}").json()
+    def getUsersId(self, userId):
+        return requests.get(f"{self.apiUrl}/{userId}").json()
 
-    def create_user(self, user):
-        return requests.post(self.base_url, json=user).json()
+    def usersCreate(self, user):
+        return requests.post(self.apiUrl, json=user).json()

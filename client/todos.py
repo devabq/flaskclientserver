@@ -1,12 +1,12 @@
 import requests
 class Todos:
-    base_url = 'http://localhost:5000/todos'
+    apiUrl = "http://localhost:5000/todos"
 
     def get_todos(self):
-        return requests.get(self.base_url).json()
+        return requests.get(self.apiUrl).json()
 
     def get_todo_by_id(self, todo_id):
-        return requests.get(f"{self.base_url}/{todo_id}").json()
+        return requests.get(f"{self.apiUrl}/{todo_id}").json()
 
-    def create_todo(self, todo):
-        return requests.post(self.base_url, json=todo).json()
+    def todoCreate(self, todo):
+        return requests.post(self.apiUrl, json=todo).json()
