@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2 class="text-decoration-none d-flex justify-content-center text-light"><i class="bi bi-person-fill"></i> USERLIST</h2>
-{% for user in users %}
-<p><a class="d-flex justify-content-center text-light lead text-decoration-none" href="/users/{{ user[' id'] }}">{{
-        user["name"] }}</a>
-<p>
-    {% endfor %}
-    {% endblock %}
+<h2 class="text-decoration-none d-flex justify-content-center text-light">DELETE USER</h2>
+<div style="padding-left: 42.3%; padding-right: 40%;">
+        <form action=" {{ url_for('usersCreate') }}" method="post">
+                USER ID TO BE DELETED:<input type="text" name="userId"><br>
+
+                <input type="submit" value="Submit">
+        </form>
+</div>
+{% endblock %}
