@@ -40,11 +40,11 @@ def get_todo_by_id(todo_id):
 
 @app.route('/todos/new')
 def new_todo():
-    return render_template('create_todo.html')
+    return render_template('createTodo.html')
 
 
 @app.route('/todos', methods=['POST'])
-def create_todo():
+def createTodo():
     title = request.form['title']
     completed = request.form['completed']
     user_id = request.form['user_id']
@@ -53,17 +53,17 @@ def create_todo():
         'completed': completed,
         'userId': user_id
     }
-    todos_api.create_todo(todo)
+    todos_api.createTodo(todo)
     return 'Tarefa criada'
 
 
 @app.route('/users/new')
 def new_user():
-    return render_template('create_user.html')
+    return render_template('createUser.html')
 
 
 @app.route('/users', methods=['POST'])
-def create_user():
+def createUser():
     name = request.form['name']
     username = request.form['username']
     email = request.form['email']
@@ -72,7 +72,7 @@ def create_user():
         'username': username,
         'email': email
     }
-    users_api.create_user(user)
+    users_api.createUser(user)
     return 'Usuario criado'
 
 

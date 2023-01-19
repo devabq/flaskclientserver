@@ -8,5 +8,5 @@ class Todos:
     def get_todo_by_id(self, todo_id):
         return requests.get(f"{self.base_url}/{todo_id}").json()
 
-    def create_todo(self, todo):
+    def createTodo(self, todo):
         return requests.post(self.base_url, json=todo).json()

@@ -8,5 +8,5 @@ class Users:
     def get_user_by_id(self, user_id):
         return requests.get(f"{self.base_url}/{user_id}").json()
 
-    def create_user(self, user):
+    def createUser(self, user):
         return requests.post(self.base_url, json=user).json()

@@ -1,5 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="text-danger">INDEX API INTERFACE</h1>
+<h1 class="text-danger d-flex justify-content-center">INDEX API INTERFACE</h1>
+<h2 class="text-decoration-none d-flex justify-content-center text-light"><i class="bi bi-person-fill"></i> USER CRUD
+</h2>
+<br>
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('userlist') }}"> <i
+        class="bi bi-person-fill-add"> </i> CREATE USER</a>
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('userlist') }}"> <i
+        class="bi bi-person-bounding-box"> </i> READ USER</a>
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('userlist') }}"> <i
+        class="bi bi-person-fill-gear"> </i> UPDATE USER</a>
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('userlist') }}"> <i
+        class="bi bi-person-fill-x"></i> DELETE USER</a>
+<br>
+<br>
+<h2 class="text-decoration-none d-flex justify-content-center text-light"><i class="bi bi-list-task"></i></i> TODO CRUD
+</h2>
+<br>
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('userlist') }}"> <i
+        class="bi bi-file-earmark-plus"></i> CREATE TODO</a>
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('userlist') }}"> <i
+        class="bi bi-search"></i> READ TODO</a>
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('userlist') }}"> <i
+        class="bi bi-gear-fill"></i> UPDATE
+    TODO</a>
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('userlist') }}"> <i
+        class="bi bi-file-excel"></i> DELETE
+    TODO</a>
 {% endblock %}
