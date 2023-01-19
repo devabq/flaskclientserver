@@ -10,7 +10,7 @@ todosApp = todos.Todos()
 
 @app.route("/")
 def index():
-    return render_template("index.html", users=users)
+    return render_template("index.html")
 
 
 @app.route("/users/all")
@@ -43,8 +43,9 @@ def usersReadRender():
     return render_template("usersRead.html")
 
 
-@app.route("/users/<int:userId>")
-def getUsersId(userId):
+@app.route("/users/find", methods=["POST"])
+def getUsersId():
+    userId = request.form['userId']
     user = usersApp.getUsersId(userId)
     return render_template("usersReadFeedback.html", user=user)
 
