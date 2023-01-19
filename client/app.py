@@ -10,13 +10,12 @@ todosApp = todos.Todos()
 
 @app.route("/")
 def index():
-    users = usersApp.get_users()
     return render_template("index.html", users=users)
 
 
 @app.route("/users/all")
 def usersAll():
-    users = usersApp.get_users()
+    users = usersApp.getUsersAll()
     return render_template("usersAll.html", users=users)
 
 
@@ -25,9 +24,29 @@ def usersCreateRender():
     return render_template("usersCreate.html")
 
 
+@app.route("/users/create", methods=["post"])
+def usersCreate():
+    name = request.form["name"]
+    username = request.form["username"]
+    email = request.form["email"]
+    user = {
+        "name": name,
+        "username": username,
+        "email": email
+    }
+    usersApp.usersCreate(user)
+    return render_template("usersCreatedFeedback.html")
+
+
 @app.route("/users/read")
 def usersReadRender():
     return render_template("usersRead.html")
+
+
+@app.route("/users/<int:userId>")
+def getUsersId(userId):
+    user = usersApp.getUsersId(userId)
+    return render_template("usersReadFeedback.html", user=user)
 
 
 @app.route("/users/update")
@@ -44,12 +63,6 @@ def usersDeleteRender():
 def get_todos():
     todos = todosApp.get_todos()
     return render_template("todos.html", todos=todos)
-
-
-@app.route("/users/<int:user_id>")
-def get_user_by_id(user_id):
-    user = usersApp.get_user_by_id(user_id)
-    return render_template("user.html", user=user)
 
 
 @app.route("/todos/<int:todo_id>")
@@ -75,20 +88,6 @@ def todoCreate():
     }
     todosApp.todoCreate(todo)
     return "Tarefa criada"
-
-
-@app.route("/users", methods=["POST"])
-def usersCreate():
-    name = request.form["name"]
-    username = request.form["username"]
-    email = request.form["email"]
-    user = {
-        "name": name,
-        "username": username,
-        "email": email
-    }
-    usersApp.usersCreate(user)
-    return render_template("usersCreatedFeedback.html")
 
 
 if __name__ == "__main__":
