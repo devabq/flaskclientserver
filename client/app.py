@@ -4,37 +4,37 @@ import todos
 
 app = Flask(__name__)
 
-users_api = users.Users()
-todos_api = todos.Todos()
+usersClass = users.Users()
+todosClass = todos.Todos()
 
 
 @app.route('/')
 def index():
-    users = users_api.get_users()
+    users = usersClass.get_users()
     return render_template('index.html', users=users)
 
 
 @app.route('/userlist')
 def userlist():
-    users = users_api.get_users()
+    users = usersClass.get_users()
     return render_template('userlist.html', users=users)
 
 
 @app.route('/todos')
 def get_todos():
-    todos = todos_api.get_todos()
+    todos = todosClass.get_todos()
     return render_template('todos.html', todos=todos)
 
 
 @app.route('/users/<int:user_id>')
 def get_user_by_id(user_id):
-    user = users_api.get_user_by_id(user_id)
+    user = usersClass.get_user_by_id(user_id)
     return render_template('user.html', user=user)
 
 
 @app.route('/todos/<int:todo_id>')
 def get_todo_by_id(todo_id):
-    todo = todos_api.get_todo_by_id(todo_id)
+    todo = todosClass.get_todo_by_id(todo_id)
     return render_template('todo.html', todo=todo)
 
 
@@ -53,7 +53,7 @@ def create_todo():
         'completed': completed,
         'userId': user_id
     }
-    todos_api.create_todo(todo)
+    todosClass.create_todo(todo)
     return 'Tarefa criada'
 
 
@@ -72,7 +72,7 @@ def create_user():
         'username': username,
         'email': email
     }
-    users_api.create_user(user)
+    usersClass.create_user(user)
     return 'Usuario criado'
 
 
