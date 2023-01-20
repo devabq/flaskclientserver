@@ -5,12 +5,13 @@
 </h2>
 <br>
 <br>
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('usersReadRender') }}"><i
+        class="mx-1 bi bi-person-bounding-box"> </i>READ SPECIFIC USER</a>
+        <br><br>
 {% for user in users %}
-<p><a class="d-flex justify-content-center text-light lead text-decoration-none"
-                href="/users/{{ user[' Id'] }}">{{user["name"] }}</a>
-<p>
-        {% endfor %}
-        <a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('index') }}"><i
-                        class="mx-1 bi bi-arrow-left-circle"></i> RETURN HOME</a>
+<p class="d-flex justify-content-center text-light lead text-decoration-none">{{user["name"] }} - User ID:
+    {{user["id"]}}
+</p>
+{% endfor %}
 
-        {% endblock %}
+{% endblock %}

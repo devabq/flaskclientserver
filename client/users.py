@@ -11,3 +11,9 @@ class Users:
 
     def userCreate(self, user):
         return requests.post(self.apiUrl, json=user).json()
+
+    def userUpdate(self, user):
+        return "USER UPDATED", 200
+    
+    def userDelete(self, userId):
+        return "USER DELETED", 200

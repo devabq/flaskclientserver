@@ -13,8 +13,9 @@ f.close()
 app = Flask(__name__)
 
 ############
-#USER STUFF
+# USER STUFF
 ############
+
 
 @app.route("/")
 @app.route("/users/")
@@ -24,12 +25,15 @@ def default():
 
 @app.route("/users/<int:userId>/")
 def getUserById(userId):
-    return usersFile[userId-1]
+    if userId > len(usersFile):
+        return "404"
+    else:
+        return usersFile[userId-1]
 
 
 @app.route("/users/<int:userId>/todos/")
 def getUserTodos(userId):
-    userTodos= []
+    userTodos = []
     for todo in todosFile:
         if (todo["userId"] == userId):
             userTodos.append(todo)
@@ -44,9 +48,28 @@ def userCreate():
     print(usersFile)
     return json.dumps(data), 201
 
+
+#@app.route("/users/", methods=["UPDATE"])
+#def userUpdate():
+#    data = request.get_json()
+#    usersFile.update(data)
+#    print(usersFile)
+#    return json.dumps(data), 200
+
+
+#@app.route("/users/delete/", methods=["DELETE"])
+#def usersDelete():
+#    data = request.get_json()
+#    usersFile.delete(data)
+#    print(usersFile)
+#    return json.dumps(data), 200
+
+#^^^^^^ COMMENTED STUFF ABOVE DOESN'T WORK ^^^^
+
 #############
-##TO-DO STUFF
+# TO-DO STUFF
 #############
+
 
 @app.route("/todos/")
 def getTodos():
@@ -61,13 +84,31 @@ def getTodoById(todoId):
     else:
         return todosFile[todoId-1]
 
+
 @app.route("/todos/", methods=["POST"])
 def todoCreate():
     data = request.get_json()
     data["id"] = len(todosFile) + 1
-    usersFile.append(data)
+    todosFile.append(data)
     print(todosFile)
     return json.dumps(data), 201
+
+#@app.route("/users/", methods=["UPDATE"])
+#def todoUpdate():
+#    data = request.get_json()
+#    todosFile.update(data)
+#    print(usersFile)
+#    return json.dumps(data), 200
+
+
+#@app.route("/users/delete/", methods=["DELETE"])
+#def todoDelete():
+#    data = request.get_json()
+#    todosFile.delete(data)
+#    print(todosFile)
+#    return json.dumps(data), 200
+
+#^^^^^^ COMMENTED STUFF ABOVE DOESN'T WORK ^^^^
 
 if __name__ == "__main__":
     app.run(debug=True)

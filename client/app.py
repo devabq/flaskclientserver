@@ -17,6 +17,7 @@ def index():
 ##################
 
 
+@app.route("/users/")
 @app.route("/users/all/")
 def usersAll():
     users = usersApp.getUsersAll()
@@ -59,9 +60,18 @@ def usersUpdateRender():
     return render_template("usersUpdate.html")
 
 
-@app.route("/users/delete")
+@app.route("/users/delete/", methods=["POST"])
+def usersDelete():
+    userId = request.form["userId"]
+    usersApp.userDelete(userId)
+    print(userId)
+    return usersAll()
+
+
+@app.route("/users/delete/")
 def usersDeleteRender():
     return render_template("usersDelete.html")
+
 
 ##################
 # USER STUFF ENDS
@@ -73,20 +83,26 @@ def usersDeleteRender():
 
 
 @app.route("/todos/")
-def getTodosAll():
+def todosAll():
     todos = todosApp.getTodosAll()
-    return render_template("todos.html", todos=todos)
+    return render_template("todosAll.html", todos=todos)
+
+@app.route("/todos/read/")
+def todosReadRender():
+    return render_template("todosRead.html")
 
 
-@app.route("/todos/<int:todo_id>")
-def getTodoById(todoId):
-    todo = todosApp.getTodoById(todoId)(todoId)
-    return render_template("todo.html", todo=todo)
+@app.route("/todos/read/", methods=["POST"])
+def getTodoById():
+    todoId = request.form["todoId"]
+    todo = todosApp.getTodoById(todoId)
+    return render_template("todosReadFeedback.html", todo=todo)
+
 
 
 @app.route("/todos/create/")
 def todoCreateRender():
-    return render_template("todoCreate.html")
+    return render_template("todosCreate.html")
 
 
 @app.route("/todos/create/", methods=["POST"])
@@ -97,9 +113,9 @@ def todoCreate():
     todo = {
         "title": title,
         "completed": completed,
-        "userId": userid}
+        "userId": userId}
     todosApp.todoCreate(todo)
-    return render_template("todosCreatedFeedback.html")
+    return render_template("todosCreatedFeedback.html", todo=todo)
 
 ##################
 # USER STUFF ENDS
