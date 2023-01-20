@@ -1,12 +1,12 @@
-import json
 from flask import Flask, jsonify, request
+import json
 
 f = open("todos.json")
-todos = json.load(f)
+todosFile = json.load(f)
 f.close()
 
 f = open("users.json")
-user_list = json.load(f)
+usersFile = json.load(f)
 f.close()
 
 app = Flask(__name__)
@@ -15,18 +15,18 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/users/")
 def default():
-    return jsonify(user_list)
+    return jsonify(usersFile)
 
 
 @app.route("/users/<int:userid>")
 def user(userid):
-    return jsonify(user_list[userid-1])
+    return jsonify(usersFile[userid-1])
 
 
 @app.route("/users/<int:userid>/todos")
 def usertodos(userid):
     filtered = []
-    for todo in todos:
+    for todo in todosFile:
         if (todo["userId"] == userid):
             filtered.append(todo)
     return jsonify(filtered)
@@ -35,10 +35,14 @@ def usertodos(userid):
 @app.route("/users/", methods=["POST"])
 def update_record():
     record = json.loads(request.data)
+    print("==THIS IS A TEST==")
     print(record)
     new_records = []
     return jsonify(record)
 
+@app.route("/todos")
+def getTodos():
+    return todosFile
 
 if __name__ == "__main__":
     app.run(debug=True)
