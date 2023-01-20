@@ -7,7 +7,7 @@
 <br>
 {% for user in users %}
 <p><a class="d-flex justify-content-center text-light lead text-decoration-none"
-                href="/users/{{ user[' id'] }}">{{user["name"] }}</a>
+                href="/users/{{ user[' Id'] }}">{{user["name"] }}</a>
 <p>
         {% endfor %}
         <a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('index') }}"><i

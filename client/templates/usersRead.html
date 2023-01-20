@@ -3,7 +3,7 @@
 {% block content %}
 <h2 class="text-decoration-none d-flex justify-content-center text-light">READ USER</h2>
 <div style="padding-left: 42.3%; padding-right: 40%;">
-        <form action=" {{ url_for('getUsersId') }}" method="post">
+        <form action=" {{ url_for('getUserById') }}" method="post">
                 USER ID TO BE READ: <input type="text" name="userId"><br><br>
 
                 <input class="btn btn-light" type="submit" value="SUBMIT">
