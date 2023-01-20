@@ -27,7 +27,7 @@ def user(userid):
 def usertodos(userid):
     filtered = []
     for todo in todos:
-        if (todo["userId"] == userid-1):
+        if (todo["userId"] == userid):
             filtered.append(todo)
     return jsonify(filtered)
 
