@@ -12,21 +12,14 @@
   <link rel="icon" type="image/x-icon"
     href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/JSON_vector_logo.svg/800px-JSON_vector_logo.svg.png">
   </i>'">
-  <title>{% block title %} {% endblock %}</title>
+  <title>{% block title %} JSON API CLIENT INTERFACE{% endblock %}</title>
 </head>
-
-<style>
-  #homebutton {
-    padding: 1cm;
-  }
-</style>
 
 <body class="bg-dark">
   <div class="bg-dark text-light">
-    <div class="container">
+    <div>
       <h1><a id="homebutton" href=" {{ url_for('index')}}"
-          class="text-light d-flex justify-content-center"><i class="mx-1 bi bi-house-fill"></i> API
-          CLIENT
+          class="mb-5 text-light d-flex justify-content-center"><i class="mx-1 bi bi-house-fill"></i> INDEX
         </a></h1>
       {% block content %} {% endblock %}
     </div>
