@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{%block content %}
+<h2 class="d-flex justify-content-center">UPDATED TODO</h2>
+<div style="padding-left: 42.3%; padding-right: 45%;">
+        <form action=" {{ url_for('todosUpdate') }}" method="post">
+                TODO ID: <input type="text" name="id"><br>
+                TITLE: <input type="text" name="title"><br>
+                COMPLETED: <input type="text" name="completed"><br><br>
+                <input class="btn btn-light" type="submit" value="SUBMIT">
+        </form>
+</div>
+{% endblock %}

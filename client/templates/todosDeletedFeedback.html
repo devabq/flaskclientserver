@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {%block content %}
-<h2 class="d-flex justify-content-center">USER DELETED</h2>
+<h2 class="d-flex justify-content-center">TODO DELETED</h2>
 <br>
 <div class="d-flex justify-content-center">
-    <p class="fs-3">THE USER WITH ID {{ user["id"] }}, {{ user["name"] }}, HAS BEEN DELETED </p>
+    <p class="fs-3">THE TODO WITH ID {{ todo["id"] }}, {{ todo["title"] }}, HAS BEEN DELETED </p>
 </div>
 <a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('index') }}">
     <i class="mx-1 bi bi-arrow-left-circle"></i> RETURN HOME</a>

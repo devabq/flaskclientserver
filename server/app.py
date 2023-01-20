@@ -90,7 +90,6 @@ def todoCreate():
     data = request.get_json()
     data["id"] = len(todosFile) + 1
     todosFile.append(data)
-    print(todosFile)
     return json.dumps(data), 201
 
 #@app.route("/users/", methods=["UPDATE"])

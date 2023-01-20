@@ -22,14 +22,14 @@
 <br>
 <a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('todosAll') }}"> <i
                 class="mx-1 bi bi-search"></i> SEE ALL TODOS</a>
-<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('todoCreate') }}"> <i
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('todosCreate') }}"> <i
                 class="mx-1 bi bi-file-earmark-plus"></i> CREATE TODO</a>
 <a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('todosReadRender') }}"> <i
                 class="mx-1 bi bi-card-text"></i> READ TODO</a>
-<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('usersAll') }}"> <i
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('todosUpdateRender') }}"> <i
                 class="mx-1 bi bi-gear-fill"></i> UPDATE
         TODO</a>
-<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('usersAll') }}"> <i
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('todosDeleteRender') }}"> <i
                 class="mx-1 bi bi-file-excel"></i> DELETE
         TODO</a>
 {% endblock %}

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {%block content %}
-<h2 class="d-flex justify-content-center">DELETE USER</h2>
+<h2 class="d-flex justify-content-center">DELETE TODO</h2>
 <div style="padding-left: 42.3%; padding-right: 45%;">
-        <form action=" {{ url_for('usersDelete') }}" method="post">
-                USER ID: <input type="text" name="id"><br><br>
+        <form action=" {{ url_for('todosDelete') }}" method="post">
+                TODO ID: <input type="text" name="id"><br><br>
                 <input class="btn btn-light" type="submit" value="SUBMIT">
         </form>
 </div>
