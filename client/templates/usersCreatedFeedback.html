@@ -3,6 +3,8 @@
 {%block content %}
 <h2 class="d-flex justify-content-center">USER CREATED</h2>
 <br>
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('usersAll') }}">
+    <i class="mx-1 bi bi-search"></i> SEE ALL USERS</a><br>
 <div class="d-flex justify-content-center">
     <p class="fs-3">NAME: {{ user["name"] }} </p>
 </div>

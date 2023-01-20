@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
-{% block content %}
-<h2 class="text-decoration-none d-flex justify-content-center text-light">UPDATE USER</h2>
-<div style="padding-left: 42.3%; padding-right: 40%;">
-        <form action=" {{ url_for('usersCreate') }}" method="post">
-                USER ID TO BE UPDATED: <input type="text" name="userId"><br>
+{%block content %}
+<h2 class="d-flex justify-content-center">UPDATE USER</h2>
+<div style="padding-left: 42.3%; padding-right: 45%;">
+        <form action=" {{ url_for('usersUpdate') }}" method="post">
+                USER ID: <input type="text" name="id"><br>
                 NAME: <input type="text" name="name"><br>
                 EMAIL: <input type="text" name="email"><br>
-                USERNAME: <input type="text" name="username"><br>
+                USERNAME: <input type="text" name="username"><br><br>
 
-                <input type="submit" value="Submit">
+                <input class="btn btn-light" type="submit" value="SUBMIT">
+        </form>
 </div>
 {% endblock %}

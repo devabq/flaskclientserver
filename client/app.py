@@ -60,18 +60,33 @@ def usersUpdateRender():
     return render_template("usersUpdate.html")
 
 
-@app.route("/users/delete/", methods=["POST"])
-def usersDelete():
-    userId = request.form["userId"]
-    usersApp.userDelete(userId)
-    print(userId)
-    return usersAll()
+@app.route("/users/update/", methods=["POST"])
+def usersUpdate():
+    userId = request.form["id"]
+    name = request.form["name"]
+    username = request.form["username"]
+    email = request.form["email"]
+    user = {
+        "id": userId,
+        "name": name,
+        "username": username,
+        "email": email
+    }
+    usersApp.userUpdate(user)
+    return render_template("usersUpdatedFeeback.html", user=user)
 
-
-@app.route("/users/delete/")
+@app.route("/users/delete")
 def usersDeleteRender():
     return render_template("usersDelete.html")
 
+@app.route("/users/delete/", methods=["POST"])
+def usersDelete():
+    userId = request.form["id"]
+    user = {
+        "id": userId,
+    }
+    usersApp.userUpdate(user)
+    return render_template("usersDeletedFeedback.html", user=user)
 
 ##################
 # USER STUFF ENDS
@@ -87,6 +102,7 @@ def todosAll():
     todos = todosApp.getTodosAll()
     return render_template("todosAll.html", todos=todos)
 
+
 @app.route("/todos/read/")
 def todosReadRender():
     return render_template("todosRead.html")
@@ -97,7 +113,6 @@ def getTodoById():
     todoId = request.form["todoId"]
     todo = todosApp.getTodoById(todoId)
     return render_template("todosReadFeedback.html", todo=todo)
-
 
 
 @app.route("/todos/create/")

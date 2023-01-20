@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2 class="text-decoration-none d-flex justify-content-center text-light"><i class="bi bi-person-fill"></i> USERLIST
+<h2 class="text-decoration-none d-flex justify-content-center text-light"><i class="bi bi-list-task"></i> TODO LIST
 </h2>
 <br>
 <br>
+<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('todosReadRender') }}"><i
+                class="mx-1 bi bi-card-text"></i>READ SPECIFIC TODO</a><br><br>
 {% for todo in todos %}
 <p class="border border-white d-flex justify-content-center text-light lead text-decoration-none">TODO: {{todo["title"]
         }} - TODO ID:
         {{todo["id"]}} - OWNER ID: {{todo["userId"]}} - COMPLETED: {{todo["completed"]}}
 </p>
 {% endfor %}
-<a class="lead text-decoration-none d-flex justify-content-center text-light" href="{{ url_for('usersReadRender') }}"><i
-                class="mx-1 bi bi-person-bounding-box"> </i>READ SPECIFIC USER</a>
 
 {% endblock %}
